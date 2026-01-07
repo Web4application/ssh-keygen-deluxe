@@ -1,0 +1,19 @@
+CACHES = {
+    "default": {
+        # Default caching backend setup, see above
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "unix:///var/run/redis/redis.sock?db=0",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PARSER_CLASS": "redis.connection.HiredisParser",
+        },
+    },
+    "avatar": {
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "LOCATION": os.path.join(DATA_DIR, "avatar-cache"),
+        "TIMEOUT": 604800,
+        "OPTIONS": {
+            "MAX_ENTRIES": 1000,
+        },
+    },
+}
