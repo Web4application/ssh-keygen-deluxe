@@ -1,4 +1,5 @@
 -- input --
+
 See the [Go home page] and the [pkg
 site].
 
